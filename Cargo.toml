@@ -7,5 +7,5 @@ authors = ["frozenScout <sasha.klokov.2000@gmail.com>"]
 
 
 [dependencies]
-server = { path = "/Users/aleksandrklokov/Documents/projects/rust/diplom_project/server" }
+server = { git = "https://github.com/alexklokov/webServer"}
 libloading = "0.5"
