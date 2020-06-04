@@ -1,4 +1,3 @@
-
 extern crate libloading as lib;
 
 extern crate server;
@@ -8,8 +7,6 @@ use std::env;
 use std::net::TcpListener;
 use std::path::Path;
 use std::path::MAIN_SEPARATOR;
-
-
 
 fn start(ip: &str, port: &str, directory: &str, name: &str) -> String {
     let site = if directory.ends_with(MAIN_SEPARATOR) {
@@ -38,7 +35,7 @@ fn start(ip: &str, port: &str, directory: &str, name: &str) -> String {
     }
 
     match TcpListener::bind(format!("{}:{}", ip, port)) {
-        Err(err) => {
+        Err(_) => {
             return "IP-адрес или порт недоступены".into();
         }
         _ => {}
@@ -63,9 +60,6 @@ fn start(ip: &str, port: &str, directory: &str, name: &str) -> String {
     String::new()
 }
 
-
-
-
 // Аргументы
 // Адрес:порт -- опционально
 // Путь до директории с сайтом -- обязательный
@@ -89,5 +83,4 @@ fn main() {
     };
     let log = start(ip, port, directory, name);
     println!("{}", log);
-
 }
